@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "521644696500",
+    "project_id": "andra-d09c0",
+    "storage_bucket": "andra-d09c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521644696500:android:a021b3132a70c4636e48e1",
+        "android_client_info": {
+          "package_name": "com.skripsi.andra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521644696500-3mqhi1q5a0j0ljnh3vuelv2saaimjjtb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMc58PcqsPjGrnRCVqbNtvYp7A1_2z_g4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521644696500-3mqhi1q5a0j0ljnh3vuelv2saaimjjtb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
