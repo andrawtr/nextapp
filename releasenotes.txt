@@ -1,1 +1,2 @@
-ini release notes
+cek koneksi ke firebase
+
