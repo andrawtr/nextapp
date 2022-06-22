@@ -1,2 +1,2 @@
-cek koneksi ke firebase
+login signup dan lupa password
 

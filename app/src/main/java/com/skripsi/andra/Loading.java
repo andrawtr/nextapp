@@ -23,7 +23,7 @@ public class Loading extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
             }
             public void onFinish() {
-                startActivity( new Intent(Loading.this , main.class));
+                startActivity( new Intent(Loading.this , signup.class));
                 Loading.this.finish();
             }
         }.start();
