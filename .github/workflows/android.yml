@@ -29,10 +29,12 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew assembleDebug
       
-    - name: Upload APK
-      uses: actions/upload-artifact@v1
+    - name: upload artifact to Firebase App Distribution
+      uses: wzieba/Firebase-Distribution-Github-Action@v1.2.2
       with:
-        name: app
-        path: app/build/outputs/apk/debug/app-debug.apk
+        appId: '1:521644696500:android:a021b3132a70c4636e48e1'
+        token: '1//0geuNhTLIxJbiCgYIARAAGBASNwF-L9IrPdw-OYX222swE85aBVPpAMctAlXZlAJm0k-1YwrUtZF8Etpzh3dedfVN1UlHWSqRzaA'
+        groups: testers
+        file: app/build/outputs/apk/debug/app-debug.apk
     
     
