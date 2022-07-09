@@ -28,24 +28,15 @@ jobs:
       
     - name: Build with Gradle
       run: ./gradlew assembleDebug
+    
+    - name: Upload APK to Github Artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: app
+        path: app/build/outputs/apk/debug/app-debug.apk
+
       
-    - name: Upload APK
-      uses: underwindfall/create-release-with-debugapk@v2.0.0
-      env:
-          GITHUB_TOKEN: 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
-      with:
-        tag_name: v1.0.0
-        asset_path: app/build/outputs/apk/debug/app-debug.apk
-        asset_name: Example.apk
-        asset_content_type: application/zip
-        
-    - name: Upload artifact to Firebase App Distribution
-      uses: wzieba/Firebase-Distribution-Github-Action@v1
-      with:
-        appId: 1:521644696500:android:a021b3132a70c4636e48e1
-        token: 1//0geuNhTLIxJbiCgYIARAAGBASNwF-L9IrPdw-OYX222swE85aBVPpAMctAlXZlAJm0k-1YwrUtZF8Etpzh3dedfVN1UlHWSqRzaA
-        groups: test aplikasi
-        file: app/build/outputs/apk/app.apk
+    
       
       
   
