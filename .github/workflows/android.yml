@@ -37,4 +37,3 @@ jobs:
         groups: testapp
         file: app/build/outputs/apk/debug/app-debug.apk
     
-    
