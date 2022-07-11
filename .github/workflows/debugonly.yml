@@ -21,4 +21,4 @@ jobs:
         cache: gradle
 
     - name: Run Unit Tests
-      run: bash ./gradlew test --stacktrace 
+      run: bash ./gradlew test
