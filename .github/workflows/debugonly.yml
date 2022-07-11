@@ -1,4 +1,4 @@
-name: unit test
+name: Android CI
 
 on:
   push:
@@ -7,10 +7,21 @@ on:
     branches: [ "master" ]
 
 jobs:
-  UnitTest:
+  build:
 
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v3
+    - name: set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: gradle
+     
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+      
     - name: Run Unit Tests
-      run: bash ./gradlew app:testDebug --tests=com.skripsi.andra.ExampleUnitTest
+      run: bash ./gradlew app:testDebug --tests=com.skripsi.andra.cekvalidTest
