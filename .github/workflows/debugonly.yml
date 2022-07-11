@@ -21,4 +21,4 @@ jobs:
         cache: gradle
 
     - name: Run Unit Tests
-      run: bash ./gradlew test
+      run: bash ./gradlew app:testDebug --tests=com.skripsi.andra.ExampleUnitTest
