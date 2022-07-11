@@ -10,22 +10,19 @@ public class cekvalidTest {
     public void valemailWhenEmailIsEmptyThenReturnEmailWajibDiisi() {
         String email = "";
         String expected = "Email wajib diisi";
-        String result = cekvalid.valemail(email);
-        assertEquals(expected, result);
+
+        String actual = cekvalid.valemail(email);
+
+        assertEquals(expected, actual);
     }
 
     @Test
     public void valemailWhenEmailIsNotValidThenReturnAlamatEmailTidakValid() {
         String email = "john@gmail";
         String expected = "Alamat Email tidak valid";
+
         String actual = cekvalid.valemail(email);
-        assertEquals(expected, actual);
-    }
-    @Test
-    public void valemailWhenEmailIsValidThenReturntrue() {
-        String email = "john@gmail.com";
-        String expected = "true";
-        String actual = cekvalid.valemail(email);
+
         assertEquals(expected, actual);
     }
 }
