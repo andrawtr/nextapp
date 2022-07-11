@@ -31,6 +31,7 @@ public class Signin extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mdatabase;
     private String username;
+    private cekvalid cv = new cekvalid();
 
 
     @Override
@@ -70,22 +71,21 @@ public class Signin extends AppCompatActivity {
 
     // cek formatemail pass nama
     private void cekemail() {
-        if (etmaill.getText().length() < 1) {
-            etmaill.setError("Email wajib diisi");
-        } else {
-            if (etmaill.getText().toString().trim().matches(buatcekemail)) {
-                bolmail = true;
-            } else {
-                etmaill.setError("Alamat Email tidak valid");
-            }
+        String hmail = cv.valemail(etmaill.getText().toString());
+        if(hmail.equals("true")){
+            bolmail = true;
+        }else{
+            etmaill.setError(hmail);
         }
     }
 
+
     private void cekpass() {
-        if (etpass.getText().length() < 6) {
-            etpass.setError("Password Minimal 6 Karakter");
-        } else {
+        String hpass = cv.valpass(etpass.getText().toString());
+        if (hpass.equals("true")) {
             bolpass = true;
+        } else {
+            etpass.setError(hpass);
         }
     }
 
