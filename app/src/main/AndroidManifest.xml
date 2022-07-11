@@ -20,7 +20,7 @@
             android:name=".signup"
             android:exported="false" />
         <activity
-            android:name=".signin"
+            android:name=".Signin"
             android:exported="false" />
         <activity
             android:name=".sudah"

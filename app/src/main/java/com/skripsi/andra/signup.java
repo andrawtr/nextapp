@@ -21,11 +21,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class signup extends AppCompatActivity {
     EditText etnama,etmail,etpass;
@@ -144,7 +141,7 @@ public class signup extends AppCompatActivity {
                 });
     }
     public void login(View v) {
-        startActivity(new Intent(signup.this, signin.class));
+        startActivity(new Intent(signup.this, Signin.class));
         signup.this.finish();
     }
     public void lupapass(View v) {

@@ -23,6 +23,7 @@ public class main extends AppCompatActivity {
     String usernya;
     private FirebaseAuth mAuth;
     private DatabaseReference mdatabase;
+    private Signin signin = new Signin();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,4 +58,5 @@ public class main extends AppCompatActivity {
     public void kesudah(View v){
         startActivity(new Intent(main.this, sudah.class));
     }
+
 }

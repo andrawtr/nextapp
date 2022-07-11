@@ -20,22 +20,19 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-public class signin extends AppCompatActivity {
+public class Signin extends AppCompatActivity {
     CheckBox checkBox2;
-    EditText etpass,etmaill;
+    EditText etpass, etmaill;
     String buatcekemail;
-    boolean bolmail,bolpass;
+    boolean bolmail, bolpass;
     ProgressDialog pd;
     private FirebaseAuth mAuth;
     private DatabaseReference mdatabase;
     private String username;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,19 +53,21 @@ public class signin extends AppCompatActivity {
             }
         });
     }
+
     public void proseslogin(View v) {
         cekemail();
         cekpass();
         if (bolmail && bolpass) {
-            pd = new ProgressDialog(signin.this);
+            pd = new ProgressDialog(Signin.this);
             pd.setMessage("Login ...");
             pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             pd.show();
             prosessignin();
         } else {
-            Log.d("Lognya","masih ada error");
+            Log.d("Lognya", "masih ada error");
         }
     }
+
     // cek formatemail pass nama
     private void cekemail() {
         if (etmaill.getText().length() < 1) {
@@ -81,6 +80,7 @@ public class signin extends AppCompatActivity {
             }
         }
     }
+
     private void cekpass() {
         if (etpass.getText().length() < 6) {
             etpass.setError("Password Minimal 6 Karakter");
@@ -88,17 +88,18 @@ public class signin extends AppCompatActivity {
             bolpass = true;
         }
     }
-    private void prosessignin(){
+
+    private void prosessignin() {
         mAuth.signInWithEmailAndPassword(etmaill.getText().toString(), etpass.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            signin.this.finish();
-                            startActivity(new Intent(signin.this, main.class));
+                            Signin.this.finish();
+                            startActivity(new Intent(Signin.this, main.class));
                         } else {
                             // If sign in fails, display a message to the user.
-                            new AlertDialog.Builder(signin.this)
+                            new AlertDialog.Builder(Signin.this)
                                     .setIcon(android.R.drawable.ic_dialog_alert)
                                     .setCancelable(false)
                                     .setTitle("Maaf !")
