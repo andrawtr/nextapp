@@ -26,7 +26,6 @@ public class cekvalidTest {
         String email = "john@gmail.com";
         String expected = "true";
         String actual = cekvalid.valemail(email);
-
         assertEquals(expected, actual);
     }
 }
