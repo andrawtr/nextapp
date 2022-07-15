@@ -25,10 +25,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class signup extends AppCompatActivity {
-    EditText etnama,etmail,etpass;
+    EditText etnama,etmail,etpass,etphone;
     String buatcekemail;
     CheckBox checkBox;
-    boolean bolmail,bolnama,bolpass;
+    boolean bolmail,bolnama,bolpass, bolhp;
     ProgressDialog pd;
     String username;
     private FirebaseAuth mAuth;
@@ -43,6 +43,7 @@ public class signup extends AppCompatActivity {
         etnama = findViewById(R.id.etnama);
         etmail = findViewById(R.id.etmail);
         etpass = findViewById(R.id.etpass);
+        etphone = findViewById(R.id.etphone);
         checkBox = findViewById(R.id.checkBox);
         buatcekemail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -74,7 +75,8 @@ public class signup extends AppCompatActivity {
         ceknama();
         cekemail();
         cekpass();
-        if (bolnama && bolmail && bolpass) {
+        cekphone();
+        if (bolnama && bolmail && bolpass && bolhp) {
             pd = new ProgressDialog(signup.this);
             pd.setMessage("Mendaftarkan ...");
             pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -84,29 +86,37 @@ public class signup extends AppCompatActivity {
             Log.d("Lognya","masih ada error");
         }
     }
-    // cek formatemail pass nama
     private void cekemail() {
-        if (etmail.getText().length() < 1) {
-            etmail.setError("Email wajib diisi");
-        } else {
-            if (etmail.getText().toString().trim().matches(buatcekemail)) {
-                bolmail = true;
-            } else {
-                etmail.setError("Alamat Email tidak valid");
-            }
+        String hmail = cekvalid.valemail(etmail.getText().toString());
+        Log.d("TAG", "cekemail: "+hmail);
+        if(hmail.equals("true")){
+            bolmail = true;
+        }else{
+            etmail.setError(hmail);
         }
     }
+
     private void cekpass() {
-        if (etpass.getText().length() < 6) {
-            etpass.setError("Password Minimal 6 Karakter");
-        } else {
+        String hpass = cekvalid.valpass(etpass.getText().toString());
+        if (hpass.equals("true")) {
             bolpass = true;
+        } else {
+            etpass.setError(hpass);
         }
     }
 
     private void ceknama() {
-        if (etnama.getText().length() < 1) {
-            etnama.setError("Nama harus diisi");
+        String hnama = cekvalid.valnama(etnama.getText().toString());
+        if (hnama.length() < 1) {
+            etnama.setError(hnama);
+        } else {
+            bolnama = true;
+        }
+    }
+    private void cekphone() {
+        String hp = cekvalid.valphone(etphone.getText().toString());
+        if (hp.length() < 1) {
+            etnama.setError(hp);
         } else {
             bolnama = true;
         }
@@ -124,6 +134,8 @@ public class signup extends AppCompatActivity {
                             String uuid = user.getUid();
                             mdatabase = FirebaseDatabase.getInstance().getReference();
                             mdatabase.child("user").child(uuid).child("username").setValue(etnama.getText().toString());
+                            mdatabase.child("user").child(uuid).child("nope").setValue(etnama.getText().toString());
+                            mdatabase.child("Event").child(uuid).child("no").setValue("1");
                             signup.this.finish();
                             startActivity(new Intent(signup.this, main.class));
                         } else {

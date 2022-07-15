@@ -52,11 +52,6 @@ public class main extends AppCompatActivity {
     public void buatevent(View v){
         startActivity(new Intent(main.this, buatevent.class));
     }
-    public void abot(View v){
-        startActivity(new Intent(main.this, about.class));
-    }
-    public void kesudah(View v){
-        startActivity(new Intent(main.this, sudah.class));
-    }
+
 
 }

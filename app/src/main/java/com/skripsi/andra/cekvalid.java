@@ -29,18 +29,27 @@ public class cekvalid {
             }
         }
     }
-    public String valpass(String pass){
+    public static String valpass(String pass){
         if (pass.length() < 6) {
             return "Password Minimal 6 Karakter";
         } else {
             return "true";
         }
     }
-    public String valnama(String nama){
+    public static String valnama(String nama){
         if (nama.length() < 1) {
             return "Nama harus diisi";
         } else {
             return "true";
         }
     }
+    public static String valphone(String phone){
+        if (phone.length() < 1) {
+            return "No telepon harus diisi";
+        } else {
+            return "true";
+        }
+    }
+
+
 }

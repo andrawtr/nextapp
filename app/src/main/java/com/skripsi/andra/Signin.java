@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
 public class Signin extends AppCompatActivity {
@@ -31,7 +32,6 @@ public class Signin extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mdatabase;
     private String username;
-    private cekvalid cv = new cekvalid();
 
 
     @Override
@@ -69,9 +69,9 @@ public class Signin extends AppCompatActivity {
         }
     }
 
-    // cek formatemail pass nama
     private void cekemail() {
-        String hmail = cv.valemail(etmaill.getText().toString());
+        String hmail = cekvalid.valemail(etmaill.getText().toString());
+        Log.d("TAG", "cekemail: "+hmail);
         if(hmail.equals("true")){
             bolmail = true;
         }else{
@@ -79,9 +79,8 @@ public class Signin extends AppCompatActivity {
         }
     }
 
-
     private void cekpass() {
-        String hpass = cv.valpass(etpass.getText().toString());
+        String hpass = cekvalid.valpass(etpass.getText().toString());
         if (hpass.equals("true")) {
             bolpass = true;
         } else {
@@ -95,8 +94,15 @@ public class Signin extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Signin.this.finish();
-                            startActivity(new Intent(Signin.this, main.class));
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            String email = user.getEmail();
+                            if (email.equals("idriskdmundu@gmail.com")){
+                                Signin.this.finish();
+                                startActivity(new Intent(Signin.this, Admin.class));
+                            }else{
+                                Signin.this.finish();
+                                startActivity(new Intent(Signin.this, main.class));
+                            }
                         } else {
                             // If sign in fails, display a message to the user.
                             new AlertDialog.Builder(Signin.this)

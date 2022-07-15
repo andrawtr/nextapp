@@ -6,6 +6,7 @@ import org.junit.Test;
 
 public class cekvalidTest {
 
+
     @Test
     public void valemailWhenEmailIsEmptyThenReturnEmailWajibDiisi() {
         String email = "";
@@ -21,6 +22,7 @@ public class cekvalidTest {
         String actual = cekvalid.valemail(email);
         assertEquals(expected, actual);
     }
+
     @Test
     public void valemailWhenEmailIsValidThenReturnAlamatEmailTidakValid() {
         String email = "john@gmail.com";
