@@ -26,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class signup extends AppCompatActivity {
     EditText etnama,etmail,etpass,etphone;
+
     String buatcekemail;
     CheckBox checkBox;
     boolean bolmail,bolnama,bolpass, bolhp;
