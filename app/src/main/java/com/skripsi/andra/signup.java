@@ -117,9 +117,9 @@ public class signup extends AppCompatActivity {
     private void cekphone() {
         String hp = cekvalid.valphone(etphone.getText().toString());
         if (hp.length() < 1) {
-            etnama.setError(hp);
+            etphone.setError(hp);
         } else {
-            bolnama = true;
+            bolhp = true;
         }
     }
     private void signup() {
@@ -135,8 +135,7 @@ public class signup extends AppCompatActivity {
                             String uuid = user.getUid();
                             mdatabase = FirebaseDatabase.getInstance().getReference();
                             mdatabase.child("user").child(uuid).child("username").setValue(etnama.getText().toString());
-                            mdatabase.child("user").child(uuid).child("nope").setValue(etnama.getText().toString());
-                            mdatabase.child("Event").child(uuid).child("no").setValue("1");
+                            mdatabase.child("user").child(uuid).child("nope").setValue(etphone.getText().toString());
                             signup.this.finish();
                             startActivity(new Intent(signup.this, main.class));
                         } else {

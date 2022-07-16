@@ -57,9 +57,11 @@ public class buatevent extends AppCompatActivity {
         bjenis = false;
         blokasi = false;
         btamu = false;
+        btanggal = false;
+        bjam = false;
         FirebaseUser user = mAuth.getCurrentUser();
         uuid  = user.getUid();
-        mdatabase = FirebaseDatabase.getInstance().getReference().child("Event").child(uuid).child("no");
+        mdatabase = FirebaseDatabase.getInstance().getReference().child("no");
         mdatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -160,14 +162,15 @@ public class buatevent extends AppCompatActivity {
 
     public void prosesevent(){
         mdatabase = FirebaseDatabase.getInstance().getReference();
-        mdatabase.child("Event").child(uuid).child("no").setValue(String.valueOf(no+1));
-        mdatabase.child("Event").child(uuid).child(String.valueOf(no+1)).child("uuid").setValue(uuid);
-        mdatabase.child("Event").child(uuid).child(String.valueOf(no+1)).child("jenis").setValue(jenis.getText().toString());
-        mdatabase.child("Event").child(uuid).child(String.valueOf(no+1)).child("lokasi").setValue(lokasi.getText().toString());
-        mdatabase.child("Event").child(uuid).child(String.valueOf(no+1)).child("tamu").setValue(tamu.getText().toString());
-        mdatabase.child("Event").child(uuid).child(String.valueOf(no+1)).child("tanggal").setValue(tvtanggal.getText().toString());
-        mdatabase.child("Event").child(uuid).child(String.valueOf(no+1)).child("jam").setValue(tvjam.getText().toString());
-
+        mdatabase.child("no").setValue(String.valueOf(no+1));
+        mdatabase.child("Event").child(String.valueOf(no+1)).child("uuid").setValue(uuid);
+        mdatabase.child("Event").child(String.valueOf(no+1)).child("jenis").setValue(jenis.getText().toString());
+        mdatabase.child("Event").child(String.valueOf(no+1)).child("lokasi").setValue(lokasi.getText().toString());
+        mdatabase.child("Event").child(String.valueOf(no+1)).child("tamu").setValue(tamu.getText().toString());
+        mdatabase.child("Event").child(String.valueOf(no+1)).child("tanggal").setValue(tvtanggal.getText().toString());
+        mdatabase.child("Event").child(String.valueOf(no+1)).child("jam").setValue(tvjam.getText().toString());
+        mdatabase.child("Event").child(String.valueOf(no+1)).child("status").setValue("Event sedang diproses");
+        mdatabase.child("user").child(uuid).child("userevent").child(String.valueOf(no+1)).child("eventsaya").setValue(String.valueOf(no+1));
     }
 
 }
