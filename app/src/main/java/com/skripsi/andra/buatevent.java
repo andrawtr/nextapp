@@ -171,6 +171,8 @@ public class buatevent extends AppCompatActivity {
         mdatabase.child("Event").child(String.valueOf(no+1)).child("jam").setValue(tvjam.getText().toString());
         mdatabase.child("Event").child(String.valueOf(no+1)).child("status").setValue("Event sedang diproses");
         mdatabase.child("user").child(uuid).child("userevent").child(String.valueOf(no+1)).child("eventsaya").setValue(String.valueOf(no+1));
+        this.finish();
+        startActivity(new Intent(buatevent.this, main.class));
     }
 
 }

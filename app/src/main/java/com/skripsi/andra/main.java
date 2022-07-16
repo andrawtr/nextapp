@@ -50,6 +50,7 @@ public class main extends AppCompatActivity {
         });
     }
     public void buatevent(View v){
+        this.finish();
         startActivity(new Intent(main.this, buatevent.class));
     }
 
