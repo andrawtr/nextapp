@@ -11,6 +11,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,11 +62,11 @@ public class main<ImageAdapter> extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         recyclerView = findViewById(R.id.rview);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(mActivity, 2, GridLayoutManager.VERTICAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(mActivity));
         recyclerView.setNestedScrollingEnabled(false);
         imagesList = new ArrayList<>();
-
         databaseReference = FirebaseDatabase.getInstance().getReference().child("user").child(uuid).child("userevent");
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
