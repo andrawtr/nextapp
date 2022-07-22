@@ -1,6 +1,7 @@
 package com.skripsi.andra;
 
 public class Model {
+    public String noevent;
     public String jenis;
     public String lokasi;
     public String tamu;
@@ -8,12 +9,13 @@ public class Model {
     public String jam;
     public String status;
     public String uuid;
+    public String nope;
 
     public Model(){
 
     }
 
-    public Model(String jenis, String lokasi, String tamu, String tanggal, String jam, String status, String uuid) {
+    public Model(String jenis, String lokasi, String tamu, String tanggal, String jam, String status, String uuid, String nope, String noevent) {
         this.jenis = jenis;
         this.lokasi = lokasi;
         this.tamu = tamu;
@@ -21,6 +23,8 @@ public class Model {
         this.jam = jam;
         this.status = status;
         this.uuid = uuid;
+        this.nope = nope;
+        this.noevent = noevent;
     }
 
 
@@ -51,4 +55,12 @@ public class Model {
     public String getUuid() {
         return uuid;
     }
+
+    public String getNope() {
+        return nope;
+    }
+    public String getNoevent() {
+        return noevent;
+    }
+
 }

@@ -106,4 +106,6 @@ public class main<ImageAdapter> extends AppCompatActivity {
         this.finish();
         startActivity(new Intent(main.this, buatevent.class));
     }
+
+
 }

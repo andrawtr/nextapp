@@ -94,6 +94,7 @@ public class Signin extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            pd.dismiss();
                             FirebaseUser user = mAuth.getCurrentUser();
                             String email = user.getEmail();
                             if (email.equals("idriskdmundu@gmail.com")){
@@ -105,6 +106,7 @@ public class Signin extends AppCompatActivity {
                             }
                         } else {
                             // If sign in fails, display a message to the user.
+                            pd.dismiss();
                             new AlertDialog.Builder(Signin.this)
                                     .setIcon(android.R.drawable.ic_dialog_alert)
                                     .setCancelable(false)

@@ -32,7 +32,7 @@ public class buatevent extends AppCompatActivity {
     private DatabaseReference mdatabase;
     private FirebaseAuth mAuth;
     private int mYear, mMonth, mDay, mHour, mMinute;
-    TextView tvtanggal, tvjam;
+    TextView tvtanggal, tvjam, tvnope;
     String jam, menit, uuid;
     EditText jenis, lokasi, tamu;
     Boolean bjenis, blokasi, btamu, btanggal, bjam;
@@ -54,6 +54,7 @@ public class buatevent extends AppCompatActivity {
         jenis = findViewById(R.id.jenisevent);
         lokasi = findViewById(R.id.lokasievent);
         tamu = findViewById(R.id.jumlahtamu);
+        tvnope = findViewById(R.id.tvnopeb);
         bjenis = false;
         blokasi = false;
         btamu = false;
@@ -164,6 +165,8 @@ public class buatevent extends AppCompatActivity {
         mdatabase = FirebaseDatabase.getInstance().getReference();
         mdatabase.child("no").setValue(String.valueOf(no+1));
         mdatabase.child("Event").child(String.valueOf(no+1)).child("uuid").setValue(uuid);
+        mdatabase.child("Event").child(String.valueOf(no+1)).child("nope").setValue(String.valueOf(tvnope));
+        mdatabase.child("Event").child(String.valueOf(no+1)).child("noevent").setValue(String.valueOf(no+1));
         mdatabase.child("Event").child(String.valueOf(no+1)).child("jenis").setValue(jenis.getText().toString());
         mdatabase.child("Event").child(String.valueOf(no+1)).child("lokasi").setValue(lokasi.getText().toString());
         mdatabase.child("Event").child(String.valueOf(no+1)).child("tamu").setValue(tamu.getText().toString());

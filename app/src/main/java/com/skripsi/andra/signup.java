@@ -65,8 +65,10 @@ public class signup extends AppCompatActivity {
         pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         pd.show();
         FirebaseUser sudahlogin = mAuth.getCurrentUser();
-        if (sudahlogin!=null){
-            startActivity(new Intent(signup.this, main.class));
+        String email = sudahlogin.getEmail();
+        if (sudahlogin!=null && email.equals("idriskdmundu@gmail.com")){
+            pd.dismiss();
+            startActivity(new Intent(signup.this, Admin.class));
         }else{
             pd.dismiss();
             Log.d("Lognya","Blm Login");
