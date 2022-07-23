@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Calendar;
 
 public class ubahevent extends AppCompatActivity {
@@ -18,7 +21,7 @@ public class ubahevent extends AppCompatActivity {
     TextView tvnamau, tvlokasiu, tvtamuu, tvtglu, tvjamu, tvtlpu, tvstatusu, tvnoevente, tvuuide, tvtglbaru, tvjambaru;
     String jam, menit, namabaru, loksibaru, tamubaru, tanggalbaru,jambaru,nopebaru,statusbaru ;
     EditText etnamabaru, ettempatbaru,ettamubaru,ettlpbaru,etstatusbaru;
-
+    private DatabaseReference mdatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +41,6 @@ public class ubahevent extends AppCompatActivity {
         String status = getIntent().getStringExtra("status");
         String noevent = getIntent().getStringExtra("noevent");
         String uuid = getIntent().getStringExtra("uuid");
-
         tvlokasiu = findViewById(R.id.tvlokasiu);
         tvtamuu = findViewById(R.id.tvtamuu);
         tvtglu = findViewById(R.id.tvtanggalu);
@@ -49,8 +51,6 @@ public class ubahevent extends AppCompatActivity {
         tvuuide = findViewById(R.id.tvuuide);
         tvtglbaru = findViewById(R.id.tvtglbaru);
         tvjambaru = findViewById(R.id.tvjambaru);
-
-
         tvnamau.setText(nama);
         tvlokasiu.setText(lokasi);
         tvtamuu.setText(tamu);
@@ -60,6 +60,11 @@ public class ubahevent extends AppCompatActivity {
         tvstatusu.setText(status);
         tvnoevente.setText(noevent);
         tvuuide.setText(uuid);
+        etnamabaru = findViewById(R.id.etnamabaru);
+        ettempatbaru = findViewById(R.id.ettempatbaru);
+        ettamubaru = findViewById(R.id.ettamubaru);
+        ettlpbaru =findViewById(R.id.ettlpbaru);
+        etstatusbaru = findViewById(R.id.etstatusbaru);
 
     }
 
@@ -98,6 +103,19 @@ public class ubahevent extends AppCompatActivity {
                     }
                 }, mHour, mMinute, true);
         timePickerDialog.show();
+    }
+    public void getstatus(){
+        if(etstatusbaru.getText().toString().length()>1){
+            statusbaru = etstatusbaru.getText().toString();
+        }else{
+            statusbaru = tvstatusu.getText().toString();
+        }
+    }
+    public void update(View v){
+        getstatus();
+        mdatabase = FirebaseDatabase.getInstance().getReference();
+        mdatabase.child("user").child(tvuuide.getText().toString()).child("userevent").child(tvnoevente.getText().toString()).child("status").setValue(statusbaru);
+        mdatabase.child("Event").child(tvnoevente.getText().toString()).child("status").setValue(statusbaru);
     }
 
 

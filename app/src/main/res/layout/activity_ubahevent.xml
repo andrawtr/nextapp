@@ -74,6 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:onClick="update"
         android:text="Update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -87,6 +88,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/textView41"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/etnamabaru"
@@ -99,6 +101,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="number"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/textView42"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/ettempatbaru"
@@ -112,6 +115,7 @@
         android:layout_marginTop="8dp"
         android:onClick="dp"
         android:text="Ubah tanggal"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
 
@@ -122,6 +126,7 @@
         android:layout_marginEnd="8dp"
         android:onClick="tp"
         android:text="ubah jam"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button3" />
 
@@ -197,6 +202,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/textView40"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView40"
@@ -209,6 +215,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="Nama Event Baru"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvnamau" />
 
@@ -218,6 +225,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Lokasi Event Baru"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/tvhj"
         app:layout_constraintTop_toBottomOf="@+id/tvhj" />
 
@@ -227,6 +235,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Jumlah Tamu Baru"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/tvt"
         app:layout_constraintTop_toBottomOf="@+id/tvt" />
 
@@ -236,6 +245,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Tanggal / jam baru"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/textView30"
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
@@ -244,6 +254,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/textView43"
         app:layout_constraintStart_toStartOf="@+id/ettamubaru"
         app:layout_constraintTop_toTopOf="@+id/textView43" />
@@ -253,6 +264,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=" / "
+        android:visibility="gone"
         app:layout_constraintStart_toEndOf="@+id/tvtglbaru"
         app:layout_constraintTop_toTopOf="@+id/tvtglbaru" />
 
@@ -261,6 +273,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:visibility="gone"
         app:layout_constraintStart_toEndOf="@+id/textView45"
         app:layout_constraintTop_toTopOf="@+id/textView45" />
 
@@ -270,6 +283,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="No Telphone baru"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/textView31"
         app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
@@ -280,6 +294,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="phone"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/textView47"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/ettamubaru"
