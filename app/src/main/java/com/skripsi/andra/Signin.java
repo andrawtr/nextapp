@@ -97,7 +97,7 @@ public class Signin extends AppCompatActivity {
                             pd.dismiss();
                             FirebaseUser user = mAuth.getCurrentUser();
                             String email = user.getEmail();
-                            if (email.equals("idriskdmundu@gmail.com")){
+                            if (email.equals("andrawitantra.aw@gmail.com")){
                                 Signin.this.finish();
                                 startActivity(new Intent(Signin.this, Admin.class));
                             }else{
