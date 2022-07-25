@@ -61,7 +61,7 @@ public class signup extends AppCompatActivity {
     }
     private void ceklogin(){
         pd = new ProgressDialog(signup.this);
-        pd.setMessage("Memeriksa User ...");
+        pd.setMessage("Memeriksa User  ...");
         pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         pd.show();
         FirebaseUser sudahlogin = mAuth.getCurrentUser();
