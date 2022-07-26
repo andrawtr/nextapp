@@ -141,6 +141,7 @@ public class signup extends AppCompatActivity {
                             signup.this.finish();
                             startActivity(new Intent(signup.this, main.class));
                         } else {
+                            Log.w("signup", "createUserWithEmail:failure", task.getException());
                             pd.dismiss();
                             new AlertDialog.Builder(signup.this)
                                     .setIcon(android.R.drawable.ic_dialog_alert)
