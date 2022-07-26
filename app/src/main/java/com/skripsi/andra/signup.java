@@ -31,7 +31,6 @@ public class signup extends AppCompatActivity {
     CheckBox checkBox;
     boolean bolmail,bolnama,bolpass, bolhp;
     ProgressDialog pd;
-    String username;
     private FirebaseAuth mAuth;
     private DatabaseReference mdatabase;
     @Override
