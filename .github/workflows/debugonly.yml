@@ -27,7 +27,7 @@ jobs:
       run: bash ./gradlew app:testDebug --tests=com.skripsi.andra.cekvalidTest
       
     - name: Run Unit Tests lupapassTest
-      run: bash ./gradlew app:testDebug --tests=com.skripsi.andra.lupapassTes
+      run: bash ./gradlew app:testDebug --tests=com.skripsi.andra.lupapassTest
       
     - name: Run Unit Tests SigninTest
       run: bash ./gradlew app:testDebug --tests=com.skripsi.andra.SigninTest
