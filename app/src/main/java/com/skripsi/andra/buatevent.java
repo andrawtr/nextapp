@@ -165,7 +165,7 @@ public class buatevent extends AppCompatActivity {
         mdatabase = FirebaseDatabase.getInstance().getReference();
         mdatabase.child("no").setValue(String.valueOf(no+1));
         mdatabase.child("Event").child(String.valueOf(no+1)).child("uuid").setValue(uuid);
-        mdatabase.child("Event").child(String.valueOf(no+1)).child("nope").setValue(String.valueOf(tvnope));
+        mdatabase.child("Event").child(String.valueOf(no+1)).child("nope").setValue(tvnope.getText().toString());
         mdatabase.child("Event").child(String.valueOf(no+1)).child("noevent").setValue(String.valueOf(no+1));
         mdatabase.child("Event").child(String.valueOf(no+1)).child("jenis").setValue(jenis.getText().toString());
         mdatabase.child("Event").child(String.valueOf(no+1)).child("lokasi").setValue(lokasi.getText().toString());
